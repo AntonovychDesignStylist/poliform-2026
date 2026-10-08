@@ -195,23 +195,11 @@ window.SLIDES = [
  },
  {
   "type": "photo",
-  "src": "media/img/p022.jpg"
- },
- {
-  "type": "photo",
-  "src": "media/img/p024.webp"
- },
- {
-  "type": "photo",
   "src": "media/img/p025.jpg"
  },
  {
   "type": "photo",
   "src": "media/img/p026.webp"
- },
- {
-  "type": "photo",
-  "src": "media/img/p027.webp"
  },
  {
   "type": "photo",
@@ -231,14 +219,6 @@ window.SLIDES = [
  },
  {
   "type": "photo",
-  "src": "media/img/p032.webp"
- },
- {
-  "type": "photo",
-  "src": "media/img/p033.webp"
- },
- {
-  "type": "photo",
   "src": "media/img/p034.webp"
  },
  {
@@ -247,14 +227,7 @@ window.SLIDES = [
  },
  {
   "type": "photo",
-  "src": "media/img/p036.webp"
- },
- {
-  "type": "pair",
-  "src": [
-   "media/img/p037.webp",
-   "media/img/p038.webp"
-  ]
+  "src": "media/img/p038.webp"
  },
  {
   "type": "photo",
