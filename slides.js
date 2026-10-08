@@ -398,7 +398,6 @@ window.SLIDES = [
  },
  {
   "type": "text",
-  "kicker": "Каталог 2026",
   "title": "Senzafine",
   "lines": [
    "Гардеробная система R&D Poliform.",
@@ -463,7 +462,6 @@ window.SLIDES = [
  },
  {
   "type": "text",
-  "kicker": "Каталог 2026",
   "title": "Savoy",
   "lines": [
    "Jean-Marie Massaud.",
@@ -538,7 +536,6 @@ window.SLIDES = [
  },
  {
   "type": "text",
-  "kicker": "Каталог 2026",
   "title": "Lanai bed system",
   "lines": [
    "Yabu Pushelberg.",
@@ -558,7 +555,6 @@ window.SLIDES = [
  },
  {
   "type": "text",
-  "kicker": "Каталог 2026",
   "title": "Brera",
   "lines": [
    "Jean-Marie Massaud.",
@@ -605,7 +601,6 @@ window.SLIDES = [
  },
  {
   "type": "text",
-  "kicker": "Каталог 2026",
   "title": "Ernest",
   "lines": [
    "Jean-Marie Massaud.",
@@ -626,7 +621,6 @@ window.SLIDES = [
  },
  {
   "type": "text",
-  "kicker": "Каталог 2026",
   "title": "Orbis · Joan",
   "lines": [
    "Orbis — Emmanuel Gallina: съёмный велюр, тёмные глянцевые опоры.",
@@ -651,7 +645,6 @@ window.SLIDES = [
  },
  {
   "type": "text",
-  "kicker": "Каталог 2026",
   "title": "Adrien · Leopold",
   "lines": [
    "Jean-Marie Massaud.",
@@ -669,7 +662,6 @@ window.SLIDES = [
  },
  {
   "type": "text",
-  "kicker": "Каталог 2026",
   "title": "Phoenix",
   "lines": [
    "R&D Poliform.",
