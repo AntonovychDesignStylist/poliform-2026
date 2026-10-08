@@ -115,10 +115,38 @@ body{font-family:var(--sans);-webkit-font-smoothing:antialiased}
 .lines span{font-weight:300;font-size:clamp(13px,1.02vw,16px);line-height:1.75;
   letter-spacing:.015em;color:var(--white)}
 
-.kicker,.title,.sub,.lines span,.wordmark-text{
+/* ─── прямая речь из ролика, который идёт следом ────────────────────── */
+/* блок прижат к низу экрана, заголовок слайда остаётся выше */
+.quotes-wrap{
+  position:absolute;left:0;right:0;bottom:clamp(50px,8vh,96px);
+  padding:0 clamp(28px,8vw,160px);z-index:2;
+}
+.quotes{
+  margin:0 auto;max-width:860px;text-align:left;
+  padding-top:1.6em;border-top:1px solid var(--hair);
+}
+.quotes.two-col{columns:2;column-gap:3.2em}
+/* один говорящий — имя выносим один раз над блоком */
+.q-who-top{margin:0 0 .9em;text-align:center;text-indent:.3em}
+.quotes.one-voice .quote{margin-bottom:1.25em}
+.quote{break-inside:avoid;margin-bottom:1.5em}
+.quote:last-child{margin-bottom:0}
+.q-who{
+  font-weight:400;font-size:clamp(8.5px,.66vw,10px);letter-spacing:.3em;
+  text-transform:uppercase;color:var(--grey);margin-bottom:.7em;text-indent:.3em;
+}
+.q-text{
+  font-weight:300;font-size:clamp(12px,.94vw,14.5px);line-height:1.72;
+  letter-spacing:.012em;color:var(--white);
+}
+.q-text .logo-inline{height:.82em;width:auto;display:inline-block;
+  vertical-align:baseline;position:relative;top:.08em;margin:0 .08em}
+
+.kicker,.title,.sub,.lines span,.wordmark-text,.quotes-wrap{
   opacity:0;transform:translateY(10px);
   transition:opacity 900ms var(--ease), transform 900ms var(--ease);
 }
+.is-active .quotes-wrap{opacity:1;transform:none;transition-delay:1100ms}
 .is-active .kicker{opacity:1;transform:none;transition-delay:140ms}
 .is-active .wordmark-text{opacity:1;transform:none;transition-delay:280ms}
 .is-active .title {opacity:1;transform:none;transition-delay:280ms}
@@ -166,12 +194,15 @@ body{font-family:var(--sans);-webkit-font-smoothing:antialiased}
   .title{letter-spacing:.24em;text-indent:.24em}
   .logo-mark{width:min(52vw,190px)}
   #hint{font-size:8.5px;left:16px;bottom:14px;letter-spacing:.18em}
+  .quotes-wrap{bottom:clamp(34px,5vh,60px)}
+  .quotes,.quotes.two-col{columns:1;padding-top:1.3em}
+  .q-text{font-size:13px;line-height:1.66}
 }
 
 @media (prefers-reduced-motion:reduce){
   .frame img{transition:none;transform:none}
   .slide.is-active .frame img{transform:none}
-  .kicker,.title,.sub,.lines span,.wordmark-text,.wordmark,.cover-foot{
+  .kicker,.title,.sub,.lines span,.wordmark-text,.wordmark,.cover-foot,.quotes-wrap{
     transition:opacity 400ms linear;transform:none}
   .is-active .rule{transition:none;width:40px}
 }
@@ -192,12 +223,18 @@ body{font-family:var(--sans);-webkit-font-smoothing:antialiased}
   font-size:clamp(14px,1.18vw,19px);line-height:1.62;letter-spacing:.01em;
 }
 
-/* вертикальное видео — перевод в правом поле рядом с кадром */
+/* вертикальное видео — перевод в правом поле, на одном уровне с титром в кадре.
+   В роликах английский титр центрирован на 70,5% высоты кадра,
+   имя говорящего — выше него. Повторяем это соотношение. */
 .subs-side .subs{
-  right:0;top:50%;transform:translateY(calc(-50% + 6px));
+  right:0;top:69.8%;transform:translateY(calc(-50% + 6px));
   width:clamp(240px,27vw,420px);padding:0 clamp(20px,2.6vw,48px);
 }
 .subs-side .subs.on{transform:translateY(-50%)}
+.subs-side .subs-who{
+  position:absolute;left:clamp(20px,2.6vw,48px);right:clamp(20px,2.6vw,48px);
+  bottom:100%;margin-bottom:1.15em;
+}
 
 /* горизонтальное видео — кадр поджимается, перевод под ним на чёрном */
 .subs-below .frame{inset:0 0 clamp(120px,19vh,180px) 0}
@@ -218,6 +255,8 @@ body{font-family:var(--sans);-webkit-font-smoothing:antialiased}
     align-items:center;justify-content:center;padding:0 22px;background:var(--bg);
   }
   .subs-side .subs.on{transform:none}
+  /* в узком экране перевод уходит под кадр — имя снова в потоке */
+  .subs-side .subs-who{position:static;left:auto;right:auto;margin-bottom:.9em}
   .subs-ru{font-size:14px;line-height:1.55}
 }
 

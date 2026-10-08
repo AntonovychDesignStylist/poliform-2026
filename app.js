@@ -64,6 +64,28 @@
       inner.innerHTML = html;
       el.appendChild(inner);
 
+      /* прямая речь из ролика, который идёт следом — отдельным блоком внизу экрана.
+         Poliform здесь набирается словом, а не логотипом: это сплошной текст. */
+      if (s.quotes && s.quotes.length) {
+        var who0 = s.quotes[0].who || '';
+        var oneVoice = s.quotes.every(function (q) { return (q.who || '') === who0; });
+        var wrap = document.createElement('div');
+        wrap.className = 'quotes-wrap';
+        wrap.innerHTML =
+          (oneVoice && who0 ? '<div class="q-who q-who-top">' + who0 + '</div>' : '') +
+          '<div class="quotes' + (s.quotes.length > 2 ? ' two-col' : '') +
+          (oneVoice ? ' one-voice' : '') + '">' +
+          s.quotes.map(function (q) {
+            return '<div class="quote">' +
+              (!oneVoice && q.who ? '<div class="q-who">' + q.who + '</div>' : '') +
+              '<p class="q-text">' + (q.ru || q.text || '') + '</p>' +
+              '</div>';
+          }).join('') +
+          '</div>';
+        el.classList.add('has-quotes');
+        el.appendChild(wrap);
+      }
+
     } else if (s.type === 'photo' || s.type === 'pair') {
       var f = document.createElement('div');
       f.className = 'frame' + (s.type === 'pair' ? ' pair' : '');
@@ -260,6 +282,20 @@
     hint.classList.add('gone');
     clearTimeout(hintTimer);
   }
+
+  /* блок реплик стоит внизу экрана — отводим под него место,
+     чтобы заголовок слайда не наезжал на него */
+  function fitQuotes() {
+    Array.prototype.forEach.call(
+      stage.querySelectorAll('.text-slide.has-quotes'), function (el) {
+        var w = el.querySelector('.quotes-wrap');
+        if (w) el.style.paddingBottom = (w.offsetHeight + 56) + 'px';
+      });
+  }
+  window.addEventListener('resize', fitQuotes);
+  fitQuotes();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitQuotes);
+  setTimeout(fitQuotes, 1200);
 
   /* ── старт ──────────────────────────────────────────────────────── */
   slides[0].classList.add('is-active');
