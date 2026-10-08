@@ -55,6 +55,21 @@ window.SLIDES = [
  {
   "type": "pair",
   "src": [
+   "media/img/p057.webp",
+   "media/img/p058.webp"
+  ]
+ },
+ {
+  "type": "photo",
+  "src": "media/img/p066.webp"
+ },
+ {
+  "type": "photo",
+  "src": "media/img/p065.webp"
+ },
+ {
+  "type": "pair",
+  "src": [
    "media/img/p005.jpg",
    "media/img/p006.jpg"
   ]
@@ -351,13 +366,6 @@ window.SLIDES = [
   "src": "media/img/p056.webp"
  },
  {
-  "type": "pair",
-  "src": [
-   "media/img/p057.webp",
-   "media/img/p058.webp"
-  ]
- },
- {
   "type": "photo",
   "src": "media/img/p059.jpg"
  },
@@ -370,8 +378,6 @@ window.SLIDES = [
  },
  {
   "type": "text",
-  "kicker": "Living",
-  "title": "Гостиные",
   "lines": [
    "Модульные диваны в анфиладе залов.",
    "Крупные мягкие объёмы против расписных потолков и лепнины."
@@ -391,12 +397,34 @@ window.SLIDES = [
   "src": "media/img/p064.webp"
  },
  {
-  "type": "photo",
-  "src": "media/img/p065.webp"
+  "type": "text",
+  "kicker": "Каталог 2026",
+  "title": "Senzafine",
+  "lines": [
+   "Гардеробная система R&D Poliform.",
+   "Тонкий профиль, стеклянные фасады, подсветка внутри секций.",
+   "Собирается под геометрию комнаты: линейная стенка, угол, отдельная гардеробная."
+  ]
  },
  {
   "type": "photo",
-  "src": "media/img/p066.webp"
+  "src": "media/img/sen1.jpg"
+ },
+ {
+  "type": "photo",
+  "src": "media/img/sen2.jpg"
+ },
+ {
+  "type": "photo",
+  "src": "media/img/suite111.jpg"
+ },
+ {
+  "type": "photo",
+  "src": "media/img/suite113.jpg"
+ },
+ {
+  "type": "photo",
+  "src": "media/img/suite115.jpg"
  },
  {
   "type": "photo",
@@ -431,78 +459,6 @@ window.SLIDES = [
   "src": [
    "media/img/p075.webp",
    "media/img/p076.webp"
-  ]
- },
- {
-  "type": "text",
-  "kicker": "Night",
-  "title": "Спальня",
-  "lines": [
-   "Спальня как цельное архитектурное пространство."
-  ]
- },
- {
-  "type": "photo",
-  "src": "media/img/p078.webp"
- },
- {
-  "type": "pair",
-  "src": [
-   "media/img/p079.webp",
-   "media/img/p080.webp"
-  ]
- },
- {
-  "type": "pair",
-  "src": [
-   "media/img/p081.webp",
-   "media/img/p082.jpg"
-  ]
- },
- {
-  "type": "photo",
-  "src": "media/img/p083.jpg"
- },
- {
-  "type": "text",
-  "kicker": "Детали",
-  "title": "Свет, кресла, материалы",
-  "lines": [
-   "Предметы крупным планом — фактура, кромка, посадка."
-  ]
- },
- {
-  "type": "photo",
-  "src": "media/img/p084.png"
- },
- {
-  "type": "pair",
-  "src": [
-   "media/img/p085.webp",
-   "media/img/p086.webp"
-  ]
- },
- {
-  "type": "pair",
-  "src": [
-   "media/img/p087.webp",
-   "media/img/p088.jpg"
-  ]
- },
- {
-  "type": "photo",
-  "src": "media/img/p089.jpg"
- },
- {
-  "type": "photo",
-  "src": "media/img/p090.jpg"
- },
- {
-  "type": "text",
-  "kicker": "Часть вторая",
-  "title": "Каталог 2026",
-  "lines": [
-   "Новые коллекции года — студийная съёмка из каталога Poliform."
   ]
  },
  {
@@ -553,6 +509,99 @@ window.SLIDES = [
     "ru": "Архетипичный, архитектурный, модульный. В Savoy структура встречается с абсолютным благополучием."
    }
   ]
+ },
+ {
+  "type": "text",
+  "kicker": "Night",
+  "title": "Спальня",
+  "lines": [
+   "Спальня как цельное архитектурное пространство."
+  ]
+ },
+ {
+  "type": "photo",
+  "src": "media/img/p078.webp"
+ },
+ {
+  "type": "pair",
+  "src": [
+   "media/img/p079.webp",
+   "media/img/p080.webp"
+  ]
+ },
+ {
+  "type": "pair",
+  "src": [
+   "media/img/p081.webp",
+   "media/img/p082.jpg"
+  ]
+ },
+ {
+  "type": "text",
+  "kicker": "Каталог 2026",
+  "title": "Lanai bed system",
+  "lines": [
+   "Yabu Pushelberg.",
+   "Кровать разрастается до целой зоны отдыха: модульные элементы наслаиваются, словно природный ландшафт.",
+   "Мягкие объёмы держат равновесие с прямыми геометричными линиями.",
+   "Структура из чёрного вяза, изголовье и спинки в съёмных чехлах из ткани Metropolitan 115 pernice.",
+   "Бельё — хлопок Provence 01 bianco с чёрным кантом и Provence 08 Polvere."
+  ]
+ },
+ {
+  "type": "photo",
+  "src": "media/img/lanai089.jpg"
+ },
+ {
+  "type": "photo",
+  "src": "media/img/lanai091.jpg"
+ },
+ {
+  "type": "text",
+  "kicker": "Каталог 2026",
+  "title": "Brera",
+  "lines": [
+   "Jean-Marie Massaud.",
+   "Кровать с мягким изголовьем, основание в коже."
+  ]
+ },
+ {
+  "type": "photo",
+  "src": "media/img/bre1.jpg"
+ },
+ {
+  "type": "text",
+  "kicker": "Детали",
+  "title": "Свет, кресла, материалы",
+  "lines": [
+   "Предметы крупным планом — фактура, кромка, посадка."
+  ]
+ },
+ {
+  "type": "pair",
+  "src": [
+   "media/img/p085.webp",
+   "media/img/p086.webp"
+  ]
+ },
+ {
+  "type": "pair",
+  "src": [
+   "media/img/p087.webp",
+   "media/img/p088.jpg"
+  ]
+ },
+ {
+  "type": "photo",
+  "src": "media/img/p084.png"
+ },
+ {
+  "type": "photo",
+  "src": "media/img/p089.jpg"
+ },
+ {
+  "type": "photo",
+  "src": "media/img/p090.jpg"
  },
  {
   "type": "text",
@@ -635,27 +684,6 @@ window.SLIDES = [
  {
   "type": "photo",
   "src": "media/img/phx2.jpg"
- },
- {
-  "type": "text",
-  "kicker": "Каталог 2026",
-  "title": "Brera · Senzafine",
-  "lines": [
-   "Brera — кровать Jean-Marie Massaud: мягкое изголовье, основание в коже.",
-   "Senzafine — гардеробная R&D Poliform со стеклянными фасадами и подсветкой."
-  ]
- },
- {
-  "type": "photo",
-  "src": "media/img/bre1.jpg"
- },
- {
-  "type": "photo",
-  "src": "media/img/sen1.jpg"
- },
- {
-  "type": "photo",
-  "src": "media/img/sen2.jpg"
  },
  {
   "type": "text",
@@ -752,6 +780,28 @@ window.SLIDES = [
  },
  {
   "type": "photo",
+  "src": "media/img/sliv4.webp"
+ },
+ {
+  "type": "photo",
+  "src": "media/img/sliv5.webp"
+ },
+ {
+  "type": "photo",
+  "src": "media/img/sliv6.webp"
+ },
+ {
+  "type": "photo",
+  "src": "media/img/sliv7.webp"
+ },
+ {
+  "type": "video",
+  "src": "media/video/sliv-tour.mp4",
+  "poster": "media/video/sliv-tour_poster.jpg",
+  "silent": true
+ },
+ {
+  "type": "photo",
   "src": "media/img/skit1.webp"
  },
  {
@@ -787,6 +837,38 @@ window.SLIDES = [
    "media/img/scl2.webp",
    "media/img/scl3.webp"
   ]
+ },
+ {
+  "type": "pair",
+  "src": [
+   "media/img/scl4.webp",
+   "media/img/scl5.webp"
+  ]
+ },
+ {
+  "type": "pair",
+  "src": [
+   "media/img/scl6.webp",
+   "media/img/scl7.webp"
+  ]
+ },
+ {
+  "type": "pair",
+  "src": [
+   "media/img/scl8.webp",
+   "media/img/scl9.webp"
+  ]
+ },
+ {
+  "type": "video",
+  "src": "media/video/scl-tour.mp4",
+  "poster": "media/video/scl-tour_poster.jpg"
+ },
+ {
+  "type": "video",
+  "src": "media/video/scl-tour2.mp4",
+  "poster": "media/video/scl-tour2_poster.jpg",
+  "silent": true
  },
  {
   "type": "text",

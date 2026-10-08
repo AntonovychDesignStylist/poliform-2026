@@ -138,6 +138,9 @@
         v.addEventListener('pause', function () { box.classList.remove('on'); shown = -1; });
       }
 
+      /* ролик без своей дорожки — кнопка звука на нём лишняя */
+      if (s.silent) { stage.appendChild(el); return; }
+
       var btn = document.createElement('button');
       btn.className = 'sound';
       btn.type = 'button';
