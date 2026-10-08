@@ -49,14 +49,15 @@ body{font-family:var(--sans);-webkit-font-smoothing:antialiased}
 
 .frame video{width:100%;height:100%;object-fit:contain;background:var(--bg)}
 
-.sound{
-  position:absolute;right:22px;bottom:22px;width:32px;height:32px;border-radius:50%;
+/* общая кнопка звука: музыка под слайдами и дорожка роликов */
+#sound-toggle{
+  position:fixed;right:22px;bottom:20px;width:32px;height:32px;border-radius:50%;
   border:1px solid rgba(255,255,255,.3);background:rgba(12,12,12,.5);
   color:var(--white);font-size:12px;line-height:30px;text-align:center;
-  cursor:pointer;opacity:0;transition:opacity 400ms var(--ease);z-index:6;
+  cursor:pointer;opacity:.45;transition:opacity 400ms var(--ease);z-index:9;padding:0;
 }
-.slide.is-active .sound{opacity:.6}
-.sound:hover{opacity:1;border-color:var(--white)}
+#sound-toggle:hover{opacity:1;border-color:var(--white)}
+#sound-toggle.off{opacity:.3;color:var(--grey-dim);text-decoration:line-through}
 
 /* ─── обложка: фотография сверху, подпись под ней на чёрном ─────────── */
 .cover .frame{inset:0 0 clamp(104px,17vh,156px) 0}

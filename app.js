@@ -138,21 +138,6 @@
         v.addEventListener('pause', function () { box.classList.remove('on'); shown = -1; });
       }
 
-      /* ролик без своей дорожки — кнопка звука на нём лишняя */
-      if (s.silent) { stage.appendChild(el); return; }
-
-      var btn = document.createElement('button');
-      btn.className = 'sound';
-      btn.type = 'button';
-      btn.textContent = '♪';
-      btn.title = 'Звук';
-      btn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        v.muted = !v.muted;
-        btn.style.borderColor = v.muted ? '' : '#FFFFFF';
-        if (!v.muted) v.play().catch(function () {});
-      });
-      el.appendChild(btn);
     }
 
     stage.appendChild(el);
@@ -174,19 +159,99 @@
     grid.appendChild(fig);
   });
 
+  /* ── звук ───────────────────────────────────────────────────────────
+     Фоновая музыка играет сплошняком под слайдами. На ролике со своей
+     дорожкой музыка уходит, слышно сам ролик; дальше музыка возвращается.
+     Телефонная съёмка помечена silent — на ней музыка продолжает звучать.
+     Браузер разрешает звук после первого действия, поэтому музыка
+     стартует с первого клика или клавиши. */
+  var MUSIC_VOL = 0.32;
+  var music = document.createElement('audio');
+  music.src = 'media/audio/background.mp3';
+  music.loop = true;
+  music.preload = 'auto';
+  music.volume = 0;
+  document.body.appendChild(music);
+
+  var soundOn = true, audioReady = false, fadeTimer = null;
+
+  function fadeTo(target, ms, done) {
+    clearInterval(fadeTimer);
+    var from = music.volume, steps = Math.max(1, Math.round(ms / 40)), k = 0;
+    fadeTimer = setInterval(function () {
+      k++;
+      music.volume = Math.max(0, Math.min(1, from + (target - from) * k / steps));
+      if (k >= steps) { clearInterval(fadeTimer); if (done) done(); }
+    }, 40);
+  }
+
+  function musicPlay() {
+    if (!audioReady || !soundOn) return;
+    music.play().catch(function () {});
+    fadeTo(MUSIC_VOL, 700);
+  }
+  function musicStop() {
+    fadeTo(0, 350, function () { music.pause(); });
+  }
+
+  function startAudio() {
+    if (audioReady) return;
+    audioReady = true;
+    if (S[cur].type === 'video' && !S[cur].silent) return;   // на ролике музыка молчит
+    musicPlay();
+  }
+  ['click', 'keydown', 'touchstart', 'wheel'].forEach(function (ev) {
+    window.addEventListener(ev, startAudio, { once: true, passive: true });
+  });
+  music.play().then(function () { audioReady = true; fadeTo(MUSIC_VOL, 900); })
+              .catch(function () {});
+
+  /* общая кнопка звука */
+  var sndBtn = document.createElement('button');
+  sndBtn.id = 'sound-toggle';
+  sndBtn.type = 'button';
+  sndBtn.textContent = '♪';
+  sndBtn.title = 'Звук';
+  sndBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    soundOn = !soundOn;
+    sndBtn.classList.toggle('off', !soundOn);
+    audioReady = true;
+    var v = slides[cur] && slides[cur].querySelector('video');
+    if (!soundOn) {
+      clearInterval(fadeTimer); music.pause(); music.volume = 0;
+      if (v) v.muted = true;
+    } else if (S[cur].type === 'video' && !S[cur].silent) {
+      if (v) { v.muted = false; v.play().catch(function () {}); }
+    } else {
+      musicPlay();
+    }
+  });
+  document.body.appendChild(sndBtn);
+
   /* ── переходы ───────────────────────────────────────────────────── */
   function media(i, action) {
-    var v = slides[i] && slides[i].querySelector('video');
-    if (!v) return;
+    var s = S[i], v = slides[i] && slides[i].querySelector('video');
     if (action === 'play') {
+      if (!v) { musicPlay(); return; }
       if (v.preload === 'none') v.preload = 'auto';
       v.currentTime = 0;
-      v.play().catch(function () {});
+      if (s.silent) {               // своей дорожки нет — музыка продолжает
+        v.muted = true;
+        musicPlay();
+      } else {
+        musicStop();
+        v.muted = !soundOn;
+      }
+      v.play().catch(function (err) {
+        // звук мог быть ещё запрещён браузером — тогда играем ролик без него
+        if (err && err.name === 'NotAllowedError') {
+          v.muted = true;
+          v.play().catch(function () {});
+        }
+      });
     } else {
-      v.pause();
-      v.muted = true;
-      var b = slides[i].querySelector('.sound');
-      if (b) b.style.borderColor = '';
+      if (v) { v.pause(); v.muted = true; }
     }
   }
 
@@ -209,6 +274,7 @@
     slides[cur].classList.add('is-active');
     slides[cur].setAttribute('aria-hidden', 'false');
     if (S[cur].type === 'video') setTimeout(function () { media(cur, 'play'); }, 260);
+    else musicPlay();                       // вернулись к слайдам — музыка снова звучит
     update();
     preload(cur + 1); preload(cur - 1);
     setTimeout(function () { busy = false; }, 620);
