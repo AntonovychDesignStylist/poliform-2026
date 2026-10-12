@@ -863,6 +863,11 @@ window.SLIDES = [
   "silent": true
  },
  {
+  "type": "video",
+  "src": "media/video/final-film.mp4",
+  "poster": "media/video/final-film_poster.jpg"
+ },
+ {
   "type": "text",
   "logo": true,
   "year": "2026",
