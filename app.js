@@ -165,7 +165,7 @@
      Телефонная съёмка помечена silent — на ней музыка продолжает звучать.
      Браузер разрешает звук после первого действия, поэтому музыка
      стартует с первого клика или клавиши. */
-  var MUSIC_VOL = 0.32;
+  var MUSIC_VOL = 0.55;
   var music = document.createElement('audio');
   music.src = 'media/audio/background.mp3';
   music.loop = true;
@@ -194,17 +194,37 @@
     fadeTo(0, 350, function () { music.pause(); });
   }
 
+  /* каждое действие человека — ещё одна попытка включить звук,
+     пока браузер его наконец разрешит */
   function startAudio() {
-    if (audioReady) return;
     audioReady = true;
-    if (S[cur].type === 'video' && !S[cur].silent) return;   // на ролике музыка молчит
+    if (S[cur].type === 'video' && !S[cur].silent) {
+      var vv = slides[cur] && slides[cur].querySelector('video');
+      if (vv && soundOn) { vv.muted = false; vv.play().catch(function () {}); }
+      return;
+    }
     musicPlay();
+    if (music.paused === false) hideSoundHint();
   }
-  ['click', 'keydown', 'touchstart', 'wheel'].forEach(function (ev) {
-    window.addEventListener(ev, startAudio, { once: true, passive: true });
+  ['pointerdown', 'click', 'keydown', 'touchstart', 'wheel', 'mousemove'].forEach(function (ev) {
+    window.addEventListener(ev, startAudio, { passive: true });
   });
-  music.play().then(function () { audioReady = true; fadeTo(MUSIC_VOL, 900); })
+  music.play().then(function () { audioReady = true; fadeTo(MUSIC_VOL, 900); hideSoundHint(); })
               .catch(function () {});
+
+  /* подсказка на первом экране: звук включается первым действием */
+  var soundHint = document.createElement('div');
+  soundHint.id = 'sound-hint';
+  soundHint.textContent = 'Нажмите для звука';
+  document.body.appendChild(soundHint);
+  function hideSoundHint() {
+    if (soundHint && soundHint.parentNode) {
+      soundHint.classList.add('gone');
+      setTimeout(function () { if (soundHint.parentNode) soundHint.parentNode.removeChild(soundHint); }, 700);
+    }
+  }
+  music.addEventListener('playing', hideSoundHint);
+  setTimeout(hideSoundHint, 15000);
 
   /* общая кнопка звука */
   var sndBtn = document.createElement('button');

@@ -57,6 +57,14 @@ body{font-family:var(--sans);-webkit-font-smoothing:antialiased}
   cursor:pointer;opacity:.45;transition:opacity 400ms var(--ease);z-index:9;padding:0;
 }
 #sound-toggle:hover{opacity:1;border-color:var(--white)}
+#sound-hint{
+  position:fixed;right:64px;bottom:24px;z-index:9;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.72);background:rgba(12,12,12,.55);
+  padding:7px 14px;border-radius:14px;pointer-events:none;
+  transition:opacity 600ms var(--ease);
+}
+#sound-hint.gone{opacity:0}
 #sound-toggle.off{opacity:.3;color:var(--grey-dim);text-decoration:line-through}
 
 /* ─── обложка: фотография сверху, подпись под ней на чёрном ─────────── */
