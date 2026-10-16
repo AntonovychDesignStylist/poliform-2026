@@ -862,6 +862,10 @@ window.SLIDES = [
   "silent": true
  },
  {
+  "type": "photo",
+  "src": "media/img/p069.webp"
+ },
+ {
   "type": "video",
   "src": "media/video/final-film.mp4",
   "poster": "media/video/final-film_poster.jpg"
