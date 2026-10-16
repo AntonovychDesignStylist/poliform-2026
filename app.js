@@ -194,6 +194,12 @@
     fadeTo(0, 350, function () { music.pause(); });
   }
 
+  /* дорожка кончилась — начинаем её заново */
+  music.addEventListener('ended', function () {
+    music.currentTime = 0;
+    musicPlay();
+  });
+
   /* каждое действие человека — ещё одна попытка включить звук,
      пока браузер его наконец разрешит */
   function startAudio() {
@@ -212,10 +218,27 @@
   music.play().then(function () { audioReady = true; fadeTo(MUSIC_VOL, 900); hideSoundHint(); })
               .catch(function () {});
 
-  /* подсказка на первом экране: звук включается первым действием */
-  var soundHint = document.createElement('div');
+  /* кнопка-подсказка: держится на экране, пока звук молчит.
+     Прокрутка колесом разрешения на звук в Chrome даёт мало,
+     поэтому нужен именно клик — его и ловит эта кнопка. */
+  var soundHint = document.createElement('button');
   soundHint.id = 'sound-hint';
-  soundHint.textContent = 'Нажмите для звука';
+  soundHint.type = 'button';
+  soundHint.textContent = '♪  Включить звук';
+  soundHint.addEventListener('click', function (e) {
+    e.stopPropagation();
+    soundOn = true;
+    audioReady = true;
+    var vv = slides[cur] && slides[cur].querySelector('video');
+    if (S[cur].type === 'video' && !S[cur].silent && vv) {
+      vv.muted = false;
+      vv.play().catch(function () {});
+      hideSoundHint();
+    } else {
+      music.play().then(function () { fadeTo(MUSIC_VOL, 600); hideSoundHint(); })
+                  .catch(function () {});
+    }
+  });
   document.body.appendChild(soundHint);
   function hideSoundHint() {
     if (soundHint && soundHint.parentNode) {
@@ -224,7 +247,10 @@
     }
   }
   music.addEventListener('playing', hideSoundHint);
-  setTimeout(hideSoundHint, 15000);
+  /* ролик со своей дорожкой тоже снимает подсказку, когда звучит */
+  document.addEventListener('play', function (e) {
+    if (e.target && e.target.tagName === 'VIDEO' && e.target.muted === false) hideSoundHint();
+  }, true);
 
   /* общая кнопка звука */
   var sndBtn = document.createElement('button');
