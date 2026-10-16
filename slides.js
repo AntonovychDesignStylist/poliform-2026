@@ -386,7 +386,8 @@ window.SLIDES = [
  {
   "type": "video",
   "src": "media/video/p062.mp4",
-  "poster": "media/video/p062_poster.jpg"
+  "poster": "media/video/p062_poster.jpg",
+  "vol": 0.82
  },
  {
   "type": "photo",
@@ -400,9 +401,7 @@ window.SLIDES = [
   "type": "text",
   "title": "Senzafine",
   "lines": [
-   "Гардеробная система R&D Poliform.",
-   "Тонкий профиль, стеклянные фасады, подсветка внутри секций.",
-   "Собирается под геометрию комнаты: линейная стенка, угол, отдельная гардеробная."
+   "Фасады в ткани, тонкий профиль, новые элементы ящиков, новый остров."
   ]
  },
  {

@@ -165,7 +165,7 @@
      Телефонная съёмка помечена silent — на ней музыка продолжает звучать.
      Браузер разрешает звук после первого действия, поэтому музыка
      стартует с первого клика или клавиши. */
-  var MUSIC_VOL = 0.55;
+  var MUSIC_VOL = 0.85;
   var music = document.createElement('audio');
   music.src = 'media/audio/background.mp3';
   music.loop = true;
@@ -262,6 +262,7 @@
       } else {
         musicStop();
         v.muted = !soundOn;
+        v.volume = typeof s.vol === 'number' ? s.vol : 1;   // поправка громкости ролика
       }
       v.play().catch(function (err) {
         // звук мог быть ещё запрещён браузером — тогда играем ролик без него
