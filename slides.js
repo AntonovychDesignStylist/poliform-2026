@@ -185,6 +185,20 @@ window.SLIDES = [
   ]
  },
  {
+  "type": "video",
+  "src": "media/video/multitude-night.mp4",
+  "poster": "media/video/multitude-night_poster.jpg",
+  "portrait": true,
+  "captions": [
+   {
+    "t": 24,
+    "to": 27.5,
+    "who": "",
+    "ru": "Мультисенсорная инсталляция, вдохновлённая тайными садами Милана."
+   }
+  ]
+ },
+ {
   "type": "text",
   "kicker": "Outdoor",
   "title": "Shore",
@@ -356,6 +370,56 @@ window.SLIDES = [
  {
   "type": "photo",
   "src": "media/img/p054.webp"
+ },
+ {
+  "type": "text",
+  "kicker": "Dining",
+  "title": "Concorde · Victoria",
+  "lines": [
+   "Concorde · стол · Emmanuel Gallina",
+   "Victoria · стул · Emmanuel Gallina",
+   "Wall System · стеллаж для гостиной"
+  ],
+  "quotes": [
+   {
+    "who": "Emmanuel Gallina",
+    "ru": "Concorde — икона, ясное выражение вневременного стиля Poliform. Основание остаётся скульптурным, массивным, узнаваемым. Столешница меняется: углы мягче, края скруглены, и форма становится текучей."
+   },
+   {
+    "who": "Emmanuel Gallina",
+    "ru": "Стул Victoria — непринуждённая элегантность, построенная на непрерывности линий и материалов. Каркас я представлял как деревянный ларец, в который заключено мягкое цельное сиденье."
+   },
+   {
+    "who": "Marco Spinelli",
+    "ru": "Функциональный центр гостиной — Wall System, исторический стеллаж Poliform. Он исключительно универсален и придаёт любому пространству характер и цельность."
+   }
+  ]
+ },
+ {
+  "type": "video",
+  "src": "media/video/p054-dining.mp4",
+  "poster": "media/video/p054-dining_poster.jpg",
+  "portrait": true,
+  "captions": [
+   {
+    "t": 7,
+    "to": 24.5,
+    "who": "Emmanuel Gallina",
+    "ru": "Concorde — икона, ясное выражение вневременного стиля Poliform. Основание остаётся скульптурным, массивным, узнаваемым. Столешница меняется: углы мягче, края скруглены, и форма становится текучей."
+   },
+   {
+    "t": 28,
+    "to": 42,
+    "who": "Emmanuel Gallina",
+    "ru": "Стул Victoria — непринуждённая элегантность, построенная на непрерывности линий и материалов. Каркас я представлял как деревянный ларец, в который заключено мягкое цельное сиденье."
+   },
+   {
+    "t": 48,
+    "to": 59.5,
+    "who": "Marco Spinelli",
+    "ru": "Функциональный центр гостиной — Wall System, исторический стеллаж Poliform. Он исключительно универсален и придаёт любому пространству характер и цельность."
+   }
+  ]
  },
  {
   "type": "photo",
