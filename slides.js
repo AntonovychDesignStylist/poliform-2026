@@ -931,7 +931,7 @@ window.SLIDES = [
  },
  {
   "type": "video",
-  "src": "media/video/final-film.mp4",
+  "src": "media/video/final-film.mp4?v=2",
   "poster": "media/video/final-film_poster.jpg"
  },
  {
