@@ -420,3 +420,19 @@
   preload(1);
   hintTimer = setTimeout(hideHint, 6000);
 })();
+
+/* Полный экран с первого действия зрителя: клик, клавиша или касание.
+   Браузеры не дают сайту уйти в полный экран сам по себе — нужен жест. */
+(function () {
+  var el = document.documentElement;
+  var req = el.requestFullscreen || el.webkitRequestFullscreen;
+  if (!req) return;
+  function goFull(e) {
+    if (e.type === 'keydown' && (e.key === 'Escape' || e.key === 'f' || e.key === 'F')) return;
+    if (document.fullscreenElement || document.webkitFullscreenElement) return;
+    try { var p = req.call(el); if (p && p.catch) p.catch(function () {}); } catch (err) {}
+  }
+  ['click', 'keydown', 'touchend'].forEach(function (ev) {
+    window.addEventListener(ev, goFull, true);
+  });
+})();
